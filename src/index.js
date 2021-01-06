@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { GithubProvider } from './context/context';
+import { Auth0Provider } from '@auth0/auth0-react';
 
+//dev-wqo-0xui.us.auth0.com
+//hnTHuL4DyMFMmE63NyFuVRH1XUMdafwD
 ReactDOM.render(
-  <React.StrictMode>
+ <React.StrictMode>
+    <Auth0Provider
+    domain="dev-wqo-0xui.us.auth0.com"
+    clientId="hnTHuL4DyMFMmE63NyFuVRH1XUMdafwD"
+    redirectUri={window.location.origin}>
+    <GithubProvider>
     <App />
-  </React.StrictMode>,
+
+    
+    </GithubProvider>
+    </Auth0Provider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
